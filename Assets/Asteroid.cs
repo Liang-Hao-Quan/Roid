@@ -15,8 +15,10 @@ public class Asteroid : MonoBehaviour
     {
     }
     public GameObject deathExplosion;
+    public AudioClip deathKnell;
     public void Die()
     {
+        AudioSource.PlayClipAtPoint(deathKnell, gameObject.transform.position);
         Instantiate(deathExplosion, gameObject.transform.position,
         Quaternion.AngleAxis(-90, Vector3.right));
         GameObject obj = GameObject.Find("GlobalObject");
